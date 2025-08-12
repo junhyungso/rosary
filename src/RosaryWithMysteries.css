@@ -1,0 +1,278 @@
+.rw-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6; /* light gray */
+  padding: 24px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial;
+}
+
+/* Card */
+.rw-card {
+  width: 100%;
+  max-width: 720px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Header */
+.rw-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.rw-title {
+  font-size: 20px;
+  margin: 0;
+  color: #111827;
+  font-weight: 600;
+}
+
+.rw-day-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rw-day-label {
+  font-size: 13px;
+  color: #374151;
+}
+
+.rw-select {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+  background: white;
+}
+
+/* Body */
+.rw-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+}
+
+/* Step view */
+.rw-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+/* Bead visuals */
+.rw-bead-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rw-bead {
+  border-radius: 999px;
+  border: 6px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.rw-bead-ourfather {
+  width: 110px;
+  height: 110px;
+  background: #8b4513;
+}
+
+.rw-bead-hailmary {
+  width: 80px;
+  height: 80px;
+  background: #c0c0c0;
+}
+
+.rw-bead-apostles {
+  width: 120px;
+  height: 120px;
+  background: #daa520;
+}
+
+.rw-bead-hailqueen {
+  width: 120px;
+  height: 120px;
+  background: #8a2be2;
+}
+
+.rw-bead:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.12);
+}
+
+.rw-bead-label {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Prayer block */
+.rw-prayer-block {
+  text-align: center;
+  max-width: 520px;
+}
+
+.rw-prayer-text {
+  margin: 0;
+  font-size: 16px;
+  color: #111827;
+  line-height: 1.45;
+}
+
+.rw-progress {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* Buttons */
+.rw-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.rw-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-size: 14px;
+}
+
+.rw-btn-primary {
+  background: #4f46e5;
+  color: white;
+  border-color: rgba(79, 70, 229, 0.9);
+}
+
+.rw-btn-primary:hover {
+  filter: brightness(0.96);
+}
+
+.rw-btn-ghost {
+  background: white;
+  color: #111827;
+  border-color: #e5e7eb;
+}
+
+/* Mystery card */
+.rw-mystery {
+  width: 100%;
+}
+
+.rw-mystery-card {
+  padding: 18px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.06);
+  text-align: left;
+}
+
+.rw-mystery-title {
+  margin: 0 0 6px 0;
+  font-size: 18px;
+  color: #111827;
+}
+
+.rw-mystery-scripture {
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.rw-mystery-text {
+  margin: 0 0 16px 0;
+  color: #111827;
+  line-height: 1.45;
+}
+
+.rw-mystery-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .rw-card {
+    padding: 14px;
+  }
+  .rw-bead-ourfather {
+    width: 92px;
+    height: 92px;
+  }
+  .rw-bead-hailmary {
+    width: 66px;
+    height: 66px;
+  }
+  .rw-prayer-text {
+    font-size: 15px;
+  }
+}
+
+/* Cross (for Apostles' Creed) */
+.rw-cross-wrap {
+  width: 120px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+  background: linear-gradient(
+    180deg,
+    rgba(218, 168, 32, 0.06),
+    rgba(218, 168, 32, 0.02)
+  );
+}
+
+.rw-cross {
+  width: 70px;
+  height: 95px;
+  fill: #daa520; /* golden tone */
+  stroke: rgba(0, 0, 0, 0.06);
+  stroke-width: 0;
+  display: block;
+}
+
+.rw-cross-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.12);
+}
+
+/* slightly adjust label spacing for the taller cross */
+.rw-bead-wrap .rw-bead-label {
+  margin-top: 12px;
+}
+
+/* responsive shrink for cross on small screens */
+@media (max-width: 640px) {
+  .rw-cross-wrap {
+    width: 92px;
+    height: 120px;
+  }
+  .rw-cross {
+    width: 58px;
+    height: 78px;
+  }
+}
