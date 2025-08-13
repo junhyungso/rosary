@@ -92,7 +92,7 @@ const RosaryWithMysteries = () => {
                 >
                   <BeadVisual beadType={current.type} />
                 </motion.div>
-                <div>
+                <div className="rw-step">
                   <div className="rw-prayer-block">
                     <p className="rw-prayer-text">{current.prayer ?? ''}</p>
                     <p className="rw-progress">

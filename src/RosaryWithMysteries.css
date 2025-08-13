@@ -14,7 +14,6 @@
 /* Card */
 .rw-card {
   width: 100%;
-  max-width: 720px;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(16, 24, 40, 0.08);
