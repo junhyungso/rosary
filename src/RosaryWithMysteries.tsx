@@ -81,17 +81,23 @@ const RosaryWithMysteries = () => {
         <div className="rw-body">
           <AnimatePresence mode="wait">
             {!isMysteryCard ? (
-              <>
+              <div className="rw-mystery-container">
                 <motion.div
                   key={currentIndex}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.35 }}
+                  drag="y"
+                  dragConstraints={{ top: -500, bottom: 0 }}
+                  onDragEnd={() => {
+                    advance();
+                  }}
                   className="rw-step"
                 >
                   <BeadVisual beadType={current.type} />
                 </motion.div>
+
                 <div className="rw-step">
                   <div className="rw-prayer-block">
                     <p className="rw-prayer-text">{current.prayer ?? ''}</p>
@@ -99,7 +105,6 @@ const RosaryWithMysteries = () => {
                       {currentIndex + 1} of {beads.length}
                     </p>
                   </div>
-
                   <div className="rw-controls">
                     <button
                       onClick={() => setCurrentIndex((i) => Math.max(0, i - 1))}
@@ -117,7 +122,7 @@ const RosaryWithMysteries = () => {
                     </button>
                   </div>
                 </div>
-              </>
+              </div>
             ) : (
               <motion.div
                 key={`mystery-${current.mysteryId}-${currentIndex}`}
