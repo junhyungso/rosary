@@ -2,29 +2,19 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
 import BeadVisual from './components/BeadVisual/BeadVisual';
 import MysteryCard from './components/MysteryCard/MysteryCard';
-import './RosaryWithMysteries.css';
+import './RosaryPrayer.css';
+import { monthNames, mysteries, weekday } from './utils/constants';
 import {
   buildSequenceWithMysteries,
   dayToMysterySet,
   findMysteryById,
 } from './utils/helperFunctions';
 
-const RosaryWithMysteries = () => {
+const RosaryPrayer = () => {
   const today = new Date();
-  const [dayOverride, setDayOverride] = useState<number>(today.getDay());
-  const mysterySetName = useMemo(
-    () => dayToMysterySet(dayOverride),
-    [dayOverride]
+  const [mysterySetName, setMysterySetName] = useState(
+    dayToMysterySet(today.getDay())
   );
-  const weekday = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
 
   const beads = useMemo(
     () => buildSequenceWithMysteries(mysterySetName),
@@ -35,17 +25,17 @@ const RosaryWithMysteries = () => {
   const current = beads[currentIndex];
   const isMysteryCard = current.type === 'mysteryCard';
 
-  function advance() {
+  const advance = () => {
     if (currentIndex < beads.length - 1) setCurrentIndex((i) => i + 1);
     else {
       alert('Rosary completed — Amen 🙏');
       setCurrentIndex(0);
     }
-  }
+  };
 
-  function beginDecadeFromMystery() {
+  const beginDecadeFromMystery = () => {
     setCurrentIndex((i) => Math.min(i + 1, beads.length - 1));
-  }
+  };
 
   return (
     <div className="rw-root">
@@ -54,40 +44,52 @@ const RosaryWithMysteries = () => {
           <h1 className="rw-title">Rosary — {mysterySetName} Mysteries</h1>
 
           <div className="rw-day-selector">
-            <label className="rw-day-label">Day:</label>
+            <label className="rw-day-label">Mystery:</label>
             <select
-              value={dayOverride}
-              onChange={(e) => setDayOverride(Number(e.target.value))}
+              value={mysterySetName}
+              onChange={(e) =>
+                setMysterySetName(e.target.value as typeof mysterySetName)
+              }
               className="rw-select"
             >
-              {weekday.map((day, index) => (
-                <option value={index}>{day}</option>
+              {mysteries.map((mystery) => (
+                <option key={mystery} value={mystery}>
+                  {mystery}
+                </option>
               ))}
             </select>
           </div>
+        </div>
+        <div className="rw-subtitle">
+          {weekday[today.getDay()]}
+          {', '} {monthNames[today.getMonth()]} {today.getDate()},{' '}
+          {today.getFullYear()}
         </div>
 
         <div className="rw-body">
           <AnimatePresence mode="wait">
             {!isMysteryCard ? (
               <div className="rw-mystery-container">
-                <motion.div
-                  key={currentIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.35 }}
-                  drag="y"
-                  dragConstraints={{ top: -500, bottom: 0 }}
-                  onDragEnd={() => {
-                    advance();
-                  }}
-                  className="rw-step"
-                >
-                  <BeadVisual beadType={current.type} />
-                </motion.div>
+                <div key={currentIndex} className="rw-step">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.35 }}
+                    drag="y"
+                    dragConstraints={{ top: 0, bottom: 30 }}
+                    onDragEnd={(event, info) => {
+                      if (info.offset.y > 10) {
+                        // drag threshold
+                        advance();
+                      }
+                    }}
+                  >
+                    <BeadVisual beadType={current.type} />
+                  </motion.div>
+                </div>
 
-                <div className="rw-step">
+                <div className="rw-step-2">
                   <div className="rw-prayer-block">
                     <p className="rw-prayer-text">{current.prayer ?? ''}</p>
                     <p className="rw-progress">
@@ -134,4 +136,4 @@ const RosaryWithMysteries = () => {
   );
 };
 
-export default RosaryWithMysteries;
+export default RosaryPrayer;

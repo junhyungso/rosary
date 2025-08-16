@@ -1,10 +1,11 @@
 import './App.css';
-import RosaryWithMysteries from './RosaryWithMysteries';
+import RosaryPrayer from './RosaryPrayer';
 
 function App() {
   return (
     <>
-      <RosaryWithMysteries />
+      {/* <NavBar /> */}
+      <RosaryPrayer />
     </>
   );
 }
