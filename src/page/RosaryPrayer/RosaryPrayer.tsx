@@ -1,14 +1,14 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
-import BeadVisual from './components/BeadVisual/BeadVisual';
-import MysteryCard from './components/MysteryCard/MysteryCard';
-import './RosaryPrayer.css';
-import { monthNames, mysteries, weekday } from './utils/constants';
+import BeadVisual from '../../components/BeadVisual/BeadVisual';
+import MysteryCard from '../../components/MysteryCard/MysteryCard';
+import { monthNames, mysteries, weekday } from '../../utils/constants';
 import {
   buildSequenceWithMysteries,
   dayToMysterySet,
   findMysteryById,
-} from './utils/helperFunctions';
+} from '../../utils/helperFunctions';
+import './RosaryPrayer.css';
 
 const RosaryPrayer = () => {
   const today = new Date();
@@ -22,15 +22,27 @@ const RosaryPrayer = () => {
   );
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [hailMaryCount, setHailMaryCount] = useState(1);
+
   const current = beads[currentIndex];
   const isMysteryCard = current.type === 'mysteryCard';
 
   const advance = () => {
-    if (currentIndex < beads.length - 1) setCurrentIndex((i) => i + 1);
-    else {
+    if (
+      currentIndex < beads.length - 1 &&
+      current.type === 'hailMary' &&
+      currentIndex > 6
+    ) {
+      setHailMaryCount((currIndex) => currIndex + 1);
+      setCurrentIndex((currIndex) => currIndex + 1);
+    } else if (currentIndex < beads.length - 1) {
+      setCurrentIndex((currIndex) => currIndex + 1);
+    } else {
       alert('Rosary completed — Amen 🙏');
       setCurrentIndex(0);
     }
+
+    if (hailMaryCount === 10) setHailMaryCount(1);
   };
 
   const beginDecadeFromMystery = () => {
@@ -80,12 +92,15 @@ const RosaryPrayer = () => {
                     dragConstraints={{ top: 0, bottom: 30 }}
                     onDragEnd={(event, info) => {
                       if (info.offset.y > 10) {
-                        // drag threshold
                         advance();
                       }
                     }}
                   >
-                    <BeadVisual beadType={current.type} />
+                    <BeadVisual
+                      beadType={current.type}
+                      hailMaryCount={hailMaryCount}
+                      currentIndex={currentIndex}
+                    />
                   </motion.div>
                 </div>
 

@@ -1,5 +1,5 @@
 import './App.css';
-import RosaryPrayer from './RosaryPrayer';
+import RosaryPrayer from './page/RosaryPrayer/RosaryPrayer';
 
 function App() {
   return (
