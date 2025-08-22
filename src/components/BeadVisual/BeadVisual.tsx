@@ -44,10 +44,7 @@ const BeadVisual = ({
             role="img"
             aria-label="Cross"
           >
-            {/* <img src={Cross} alt="cross" width={50} /> */}
-            {/* vertical */}
             <rect x="48" y="8" width="24" height="120" rx="6" />
-            {/* horizontal */}
             <rect x="20" y="44" width="80" height="20" rx="6" />
           </svg>
         </div>
