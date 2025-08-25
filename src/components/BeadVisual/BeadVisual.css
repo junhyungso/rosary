@@ -1,0 +1,151 @@
+/* Bead visuals */
+.rw-bead-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.rw-bead {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #888);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  /* Depth effect */
+  box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.3),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.2), 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+.bead-highlight {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  filter: blur(2px);
+}
+
+.rw-bead-ourfather {
+  width: 110px;
+  height: 110px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #2c3e50);
+}
+
+.rw-bead-hailmary {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #5a5a5a);
+}
+
+.rw-bead-apostles {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #8b0000);
+}
+
+.rw-bead-hailqueen {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #8a2be2);
+}
+
+.rw-bead:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.12);
+}
+
+.rw-bead-label {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+/* Cross (for Apostles' Creed) */
+.rw-cross-wrap {
+  width: 120px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
+  background: linear-gradient(
+    180deg,
+    rgba(218, 168, 32, 0.06),
+    rgba(218, 168, 32, 0.02)
+  );
+}
+
+.rw-cross {
+  width: 70px;
+  height: 95px;
+  fill: #daa520; /* golden tone */
+  stroke: rgba(0, 0, 0, 0.06);
+  stroke-width: 0;
+  display: block;
+}
+
+.rw-cross-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.12);
+}
+
+/* slightly adjust label spacing for the taller cross */
+.rw-bead-wrap .rw-bead-label {
+  margin-top: 12px;
+}
+
+.cross {
+  position: relative;
+  width: 100px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Vertical bar */
+.cross .vertical {
+  width: 30px;
+  height: 150px;
+  background: linear-gradient(180deg, #dcdcdc, #a6a6a6, #f5f5f5);
+  border-radius: 6px;
+  box-shadow: inset -4px -4px 6px rgba(255, 255, 255, 0.6),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Horizontal bar */
+.cross .horizontal {
+  position: absolute;
+  top: 40px;
+  width: 100px;
+  height: 30px;
+  background: linear-gradient(90deg, #dcdcdc, #a6a6a6, #f5f5f5);
+  border-radius: 6px;
+  box-shadow: inset -4px -4px 6px rgba(255, 255, 255, 0.6),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.4), 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* responsive shrink for cross on small screens */
+@media (max-width: 640px) {
+  .rw-root {
+    padding: 2px;
+  }
+  .rw-cross-wrap {
+    width: 92px;
+    height: 120px;
+  }
+  .rw-cross {
+    width: 58px;
+    height: 78px;
+  }
+}

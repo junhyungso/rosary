@@ -98,57 +98,6 @@
   width: 100%;
 }
 
-/* Bead visuals */
-.rw-bead-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px;
-}
-
-.rw-bead {
-  border-radius: 999px;
-  border: 6px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
-  transition: transform 220ms ease, box-shadow 220ms ease;
-}
-
-.rw-bead-ourfather {
-  width: 110px;
-  height: 110px;
-  background: #8b4513;
-}
-
-.rw-bead-hailmary {
-  width: 80px;
-  height: 80px;
-  background: #c0c0c0;
-}
-
-.rw-bead-apostles {
-  width: 120px;
-  height: 120px;
-  background: #daa520;
-}
-
-.rw-bead-hailqueen {
-  width: 120px;
-  height: 120px;
-  background: #8a2be2;
-}
-
-.rw-bead:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.12);
-}
-
-.rw-bead-label {
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #f3f4f6;
-}
-
 /* Prayer block */
 .rw-prayer-block {
   text-align: center;
@@ -260,53 +209,9 @@
   }
 }
 
-/* Cross (for Apostles' Creed) */
-.rw-cross-wrap {
-  width: 120px;
-  height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-  transition: transform 220ms ease, box-shadow 220ms ease;
-  box-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
-  background: linear-gradient(
-    180deg,
-    rgba(218, 168, 32, 0.06),
-    rgba(218, 168, 32, 0.02)
-  );
-}
-
-.rw-cross {
-  width: 70px;
-  height: 95px;
-  fill: #daa520; /* golden tone */
-  stroke: rgba(0, 0, 0, 0.06);
-  stroke-width: 0;
-  display: block;
-}
-
-.rw-cross-wrap:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.12);
-}
-
-/* slightly adjust label spacing for the taller cross */
-.rw-bead-wrap .rw-bead-label {
-  margin-top: 12px;
-}
-
 /* responsive shrink for cross on small screens */
 @media (max-width: 640px) {
   .rw-root {
     padding: 2px;
-  }
-  .rw-cross-wrap {
-    width: 92px;
-    height: 120px;
-  }
-  .rw-cross {
-    width: 58px;
-    height: 78px;
   }
 }
