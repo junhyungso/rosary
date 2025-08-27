@@ -17,10 +17,8 @@ const BeadVisual = ({
       ? 'Hail Mary'
       : beadType === 'apostlesCreed'
       ? "Apostles' Creed"
-      : beadType === 'gloryBe'
-      ? 'Glory Be'
-      : beadType === 'fatimaPrayer'
-      ? 'Fatima Prayer'
+      : beadType === 'gloryBeFatimaPrayer'
+      ? 'Glory Be / Fatima Prayer'
       : beadType === 'hailHolyQueen'
       ? 'Hail Holy Queen'
       : '';

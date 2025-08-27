@@ -11,7 +11,10 @@ export const buildSequenceWithMysteries = (
   sequence.push({ type: 'hailMary', prayer: prayers.hailMary });
   sequence.push({ type: 'hailMary', prayer: prayers.hailMary });
   sequence.push({ type: 'hailMary', prayer: prayers.hailMary });
-  sequence.push({ type: 'gloryBe', prayer: prayers.gloryBe });
+  sequence.push({
+    type: 'gloryBeFatimaPrayer',
+    prayer: prayers.gloryBeFatimaPrayer,
+  });
 
   const mysterySet = MYSTERY_SETS[mysterySetName];
   for (let d = 0; d < 5; d++) {
@@ -21,7 +24,10 @@ export const buildSequenceWithMysteries = (
     for (let i = 0; i < 10; i++) {
       sequence.push({ type: 'hailMary', prayer: prayers.hailMary });
     }
-    sequence.push({ type: 'gloryBe', prayer: prayers.gloryBe });
+    sequence.push({
+      type: 'gloryBeFatimaPrayer',
+      prayer: prayers.gloryBeFatimaPrayer,
+    });
   }
 
   sequence.push({ type: 'hailHolyQueen', prayer: prayers.hailHolyQueen });

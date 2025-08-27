@@ -9,7 +9,7 @@ export type BeadType =
   | 'apostlesCreed'
   | 'ourFather'
   | 'hailMary'
-  | 'gloryBe'
+  | 'gloryBeFatimaPrayer'
   | 'fatimaPrayer'
   | 'hailHolyQueen'
   | 'mysteryCard';
