@@ -103,6 +103,7 @@
   text-align: center;
   max-width: 520px;
   height: 280px;
+  overflow: scroll;
 }
 
 .rw-prayer-text {
