@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f3f4f6; /* light gray */
+  background: #f3f4f6;
   padding: 2px;
   height: 100%;
   width: 100%;
@@ -13,7 +13,6 @@
   border-radius: 12px;
 }
 
-/* Card */
 .rw-card {
   width: 600px;
   height: 700px;
@@ -23,8 +22,6 @@
   padding: 20px;
   box-sizing: border-box;
 }
-
-/* Header */
 
 .rw-title-bar {
   display: flex;
@@ -70,7 +67,6 @@
   background: white;
 }
 
-/* Body */
 .rw-body {
   display: flex;
   align-items: center;
@@ -78,7 +74,6 @@
   padding: 18px 12px;
 }
 
-/* Step view */
 .rw-step {
   display: flex;
   flex-direction: column;
@@ -98,7 +93,6 @@
   width: 100%;
 }
 
-/* Prayer block */
 .rw-prayer-block {
   text-align: center;
   max-width: 520px;
@@ -120,7 +114,6 @@
   color: #b5becf;
 }
 
-/* Buttons */
 .rw-controls {
   display: flex;
   gap: 12px;
@@ -151,7 +144,6 @@
   border-color: #e5e7eb;
 }
 
-/* Mystery card */
 .rw-mystery {
   width: 100%;
 }
@@ -189,7 +181,6 @@
   justify-content: center;
 }
 
-/* Responsive */
 @media (max-width: 640px) {
   .rw-root {
     height: 100%;
@@ -211,7 +202,6 @@
   }
 }
 
-/* responsive shrink for cross on small screens */
 @media (max-width: 640px) {
   .rw-root {
     padding: 2px;
